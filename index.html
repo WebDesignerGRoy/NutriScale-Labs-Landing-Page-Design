@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriScale Labs - #1 Supplement Manufacturing & Brand Scaling Partner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #e63946; /* Red from logo */
+            --secondary-color: #1d3557; /* Deep blue */
+            --light-blue: #457b9d; /* Light blue */
+            --accent-blue: #a8dadc; /* Accent blue */
+            --light-gray: #f1faee; /* Light gray/cream */
+            --white: #ffffff;
+            --dark: #14213d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--dark);
+            color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .logo-text {
+            color: var(--primary-color);
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
+            font-size: 16px;
+            margin-left: 3px;
+        }
+
+        .logo-line {
+            width: 20px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 0 5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .phone-cta {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .phone-cta:hover {
+            background-color: #d62828;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(29, 53, 87, 0.8), rgba(29, 53, 87, 0.8)), url('https://images.unsplash.com/photo-1584308972272-9e4e7685e80f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            padding: 180px 0 100px;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: #d62828;
+            transform: translateY(-3px);
+        }
+
+        /* Core Messaging Banner */
+        .core-messaging {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 20px 0;
+        }
+
+        .core-messaging-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .message-item {
+            text-align: center;
+            padding: 10px;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .message-item i {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--accent-blue);
+        }
+
+        .message-item p {
+            font-weight: bold;
+        }
+
+        /* Capabilities Section */
+        .capabilities {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--dark);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .capability-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .capability-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .capability-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .capability-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        /* How We Help Section */
+        .help-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .help-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .help-card {
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .help-card:hover {
+            background-color: var(--accent-blue);
+            color: var(--white);
+        }
+
+        .help-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .help-card:hover i {
+            color: var(--white);
+        }
+
+        .help-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Trust Section */
+        .trust-section {
+            padding: 60px 0;
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: var(--light-gray);
+            transition: all 0.3s;
+        }
+
+        .badge:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .badge i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .badge h4 {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+        }
+
+        /* Why Choose Us Section */
+        .why-choose-section {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+
+        .benefits-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .benefit-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 20px;
+            margin-top: 5px;
+        }
+
+        .benefit-text h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--accent-blue);
+            margin-right: 20px;
+            margin-top: 5px;
+        }
+
+        .contact-form {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .contact-form h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .form-button:hover {
+            background-color: #d62828;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo {
+            flex: 1;
+            min-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            flex: 1;
+            min-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsive */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .core-messaging-container {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <div class="logo-text">
+                        <img src=".//image/NutriScale Labs1.png" alt="">
+                    </div>
+                    <!-- <div class="logo-line"></div>
+                    <div class="logo-text">com</div> -->
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#capabilities">Capabilities</a></li>
+                    <li><a href="#how-we-help">How We Help</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="tel:305-497-8963" class="phone-cta">305-497-8963</a></li>
+                </ul>
+                <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Scale Your Brand with the #1 Supplement Partner in the USA</h1>
+            <p>From manufacturing to marketing — NutriScale Labs is the only partner who helps you grow.</p>
+            <a href="tel:305-497-8963" class="cta-button">Call Us Now - 305-497-8963</a>
+        </div>
+    </section>
+
+    <!-- Core Messaging Banner -->
+    <section class="core-messaging">
+        <div class="container">
+            <div class="core-messaging-container">
+                <div class="message-item">
+                    <i class="fas fa-flag-usa"></i>
+                    <p>NO TARIFFS – MADE IN THE USA</p>
+                </div>
+                <div class="message-item">
+                    <i class="fas fa-shipping-fast"></i>
+                    <p>LIGHTNING FAST SHIPPING DAYS</p>
+                </div>
+                <div class="message-item">
+                    <i class="fas fa-truck"></i>
+                    <p>DROPSHIPPING AVAILABLE</p>
+                </div>
+                <div class="message-item">
+                    <i class="fas fa-star"></i>
+                    <p>MAKE YOUR DREAM BRAND COME TRUE</p>
+                </div>
+                <div class="message-item">
+                    <i class="fas fa-pills"></i>
+                    <p>ANY FORMULATION POSSIBLE</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities Section -->
+    <section class="capabilities" id="capabilities">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Capabilities</h2>
+                <p>World-class manufacturing capabilities with FDA-approved standards and full certifications</p>
+            </div>
+            <div class="capabilities-grid">
+                <div class="capability-card">
+                    <i class="fas fa-capsules"></i>
+                    <h3>Pills & Capsules</h3>
+                    <p>High-quality pills and capsules manufactured in our state-of-the-art facility</p>
+                </div>
+                <div class="capability-card">
+                    <i class="fas fa-mortar-pestle"></i>
+                    <h3>Powders</h3>
+                    <p>Premium powder supplements with precise formulations and excellent solubility</p>
+                </div>
+                <div class="capability-card">
+                    <i class="fas fa-dog"></i>
+                    <h3>Pet Supplements</h3>
+                    <p>Specialized pet supplements with formulations tailored for different animals</p>
+                </div>
+                <div class="capability-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Certified Quality</h3>
+                    <p>All products are Made in USA, FDA approved, and certified for highest quality</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Help Section -->
+    <section class="help-section" id="how-we-help">
+        <div class="container">
+            <div class="section-title">
+                <h2>How We Help You Scale</h2>
+                <p>We're more than just a manufacturer - we're your growth partner</p>
+            </div>
+            <div class="help-grid">
+                <div class="help-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Label & Logo Design</h3>
+                    <p>Professional design services to make your brand stand out</p>
+                </div>
+                <div class="help-card">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>E-Commerce Setup</h3>
+                    <p>Shopify and other platform integration for seamless online sales</p>
+                </div>
+                <div class="help-card">
+                    <i class="fab fa-instagram"></i>
+                    <h3>Social Media Growth</h3>
+                    <p>Instagram & TikTok strategies to grow your brand presence</p>
+                </div>
+                <div class="help-card">
+                    <i class="fas fa-box"></i>
+                    <h3>Dropshipping</h3>
+                    <p>Complete fulfillment solutions to streamline your operations</p>
+                </div>
+                <div class="help-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>1-on-1 Consultation</h3>
+                    <p>Personalized guidance to help you make the right decisions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About NutriScale Labs</h2>
+                <p>Your trusted partner in supplement manufacturing and brand growth</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>More Than Just a Manufacturer</h3>
+                    <p>At NutriScale Labs, we believe manufacturing is only the beginning. Based in the heart of Miami, Florida, we are more than just a supplement factory — we are your brand scaling partner.</p>
+                    <p>With our state-of-the-art facility in Hialeah (2630 W 79th St, Hialeah, FL 33016), we produce high-quality pills, capsules, powders, and even pet supplements — all Made in the USA and backed by FDA-approved standards and full certifications.</p>
+                    <p>But what truly sets us apart is our commitment to helping you grow your dream brand. From custom formulations and premium raw ingredients to label and logo creation, Shopify integration, and 1-on-1 consultation, we guide you every step of the way.</p>
+                    <p>We are the only manufacturer that combines world-class production with real brand-building expertise. With NutriScale Labs, you don't just get products — you get a partner who's dedicated to scaling your business.</p>
+                    <a href="tel:305-497-8963" class="cta-button">Call Us Now - 305-497-8963</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="NutriScale Labs Facility">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Trust & Quality</h2>
+                <p>Our certifications and quality standards speak for themselves</p>
+            </div>
+            <div class="trust-badges">
+                <div class="badge">
+                    <i class="fas fa-award"></i>
+                    <h4>Made in USA</h4>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-check-circle"></i>
+                    <h4>FDA Approved</h4>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-certificate"></i>
+                    <h4>Certified Quality</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose NutriScale Labs</h2>
+                <p>The advantages of working with the industry's best</p>
+            </div>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <i class="fas fa-flag-usa"></i>
+                    <div class="benefit-text">
+                        <h4>NO TARIFFS – MADE IN THE USA</h4>
+                        <p>All our products are manufactured in our Miami facility, so you never have to worry about import tariffs or international shipping delays.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-shipping-fast"></i>
+                    <div class="benefit-text">
+                        <h4>FAST SHIPPING</h4>
+                        <p>Our strategic location and efficient processes ensure lightning-fast shipping times to get your products to market quickly.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-truck"></i>
+                    <div class="benefit-text">
+                        <h4>DROPSHIPPING AVAILABLE</h4>
+                        <p>Focus on marketing your brand while we handle the fulfillment with our seamless dropshipping solutions.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-chart-line"></i>
+                    <div class="benefit-text">
+                        <h4>SCALING SUPPORT</h4>
+                        <p>Unlike other manufacturers, we provide comprehensive support to help your brand grow and succeed in the market.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: var(--white);">Contact Us</h2>
+                <p style="color: var(--white);">Get in touch with our team today</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Our Location</h4>
+                            <p>2630 W 79th St, Hialeah, FL 33016</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Phone Number</h4>
+                            <p><a href="tel:305-497-8963" style="color: var(--white);">305-497-8963</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email Address</h4>
+                            <p>info@nutriscalelabs.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Business Hours</h4>
+                            <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                        </div>
+                    </div>
+                    <a href="tel:305-497-8963" class="cta-button" style="margin-top: 20px;">Call Us Now - 305-497-8963</a>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Your Phone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="form-button">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo" style="justify-content: flex-start; margin-bottom: 15px;">
+                        <div class="logo-text">
+                            <img src=".//image/NutriScale Labs.png" alt="">
+                        </div>
+                        <!-- <div class="logo-line"></div>
+                        <div class="logo-text">com</div> -->
+                    </div>
+                    <p>The #1 Supplement Manufacturing & Brand Scaling Partner</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#capabilities">Our Capabilities</a></li>
+                        <li><a href="#how-we-help">How We Help</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Supplement Manufacturing</a></li>
+                        <li><a href="#">Label & Logo Design</a></li>
+                        <li><a href="#">E-Commerce Setup</a></li>
+                        <li><a href="#">Dropshipping Solutions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 NutriScale Labs. All Rights Reserved. Design By G.Roy</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '70px';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.backgroundColor = 'var(--white)';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.padding = '20px';
+            }
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the form data to a server
+            // For demonstration, we'll just show a success message
+            
+            // Create success message element
+            const successMessage = document.createElement('div');
+            successMessage.style.backgroundColor = 'var(--primary-color)';
+            successMessage.style.color = 'var(--white)';
+            successMessage.style.padding = '15px';
+            successMessage.style.borderRadius = '5px';
+            successMessage.style.marginTop = '20px';
+            successMessage.textContent = `Thank you, ${name}! Your message has been sent. We'll contact you soon.`;
+            
+            // Add success message to the form
+            this.appendChild(successMessage);
+            
+            // Reset form
+            this.reset();
+            
+            // Remove success message after 5 seconds
+            setTimeout(() => {
+                successMessage.remove();
+            }, 5000);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
